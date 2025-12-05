@@ -1,0 +1,38 @@
+name: test_adamom_novel_optimizer
+n_seeds: 3
+
+base:
+  problem:
+    name: logistic
+    params:
+      reg: 0.0001
+  training:
+    max_iterations: 500
+    batch_size: 64
+    eval_interval: 10
+    track_gradients: true
+
+experiments:
+  # Test our novel AdaMom optimizer
+  - optimizer:
+      name: adamom
+      params:
+        lr: 0.01
+        momentum: 0.9
+
+  - optimizer:
+      name: adamom
+      params:
+        lr: 0.1
+        momentum: 0.9
+
+  # Compare with best existing optimizers for reference
+  - optimizer:
+      name: adagrad
+      params:
+        lr: 0.1
+
+  - optimizer:
+      name: adam
+      params:
+        lr: 0.001

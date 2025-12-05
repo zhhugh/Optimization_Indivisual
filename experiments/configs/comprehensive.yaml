@@ -1,0 +1,49 @@
+name: comprehensive_comparison
+n_seeds: 3
+
+base:
+  problem:
+    name: logistic
+    params:
+      reg: 0.0001
+  training:
+    max_iterations: 300
+    batch_size: 64
+    eval_interval: 20
+    track_gradients: true
+
+experiments:
+  - optimizer:
+      name: sgd
+      params:
+        lr: 0.1
+
+  - optimizer:
+      name: momentum
+      params:
+        lr: 0.1
+        momentum: 0.9
+
+  - optimizer:
+      name: nesterov
+      params:
+        lr: 0.1
+        momentum: 0.9
+
+  - optimizer:
+      name: adagrad
+      params:
+        lr: 0.1
+
+  - optimizer:
+      name: rmsprop
+      params:
+        lr: 0.01
+        beta: 0.9
+
+  - optimizer:
+      name: adam
+      params:
+        lr: 0.001
+        beta1: 0.9
+        beta2: 0.999

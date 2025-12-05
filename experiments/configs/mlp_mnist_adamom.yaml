@@ -1,0 +1,22 @@
+name: mlp_mnist_adamom_only
+n_seeds: 5
+
+base:
+  problem:
+    name: mlp
+    params:
+      hidden_dims: [128, 64]
+      reg: 0.0001
+  training:
+    max_iterations: 1000
+    batch_size: 64
+    eval_interval: 20
+    track_gradients: true
+
+experiments:
+  - optimizer:
+      name: adamom
+      params:
+        lr: 0.01
+        momentum: 0.9
+

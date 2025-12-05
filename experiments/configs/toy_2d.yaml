@@ -1,0 +1,50 @@
+name: rosenbrock_2d
+n_seeds: 3
+
+base:
+  problem:
+    name: rosenbrock
+    params:
+      a: 1.0
+      b: 100.0
+  training:
+    max_iterations: 2000
+    batch_size: 1
+    eval_interval: 50
+    track_gradients: true
+
+experiments:
+  - optimizer:
+      name: sgd
+      params:
+        lr: 0.001
+
+  - optimizer:
+      name: momentum
+      params:
+        lr: 0.001
+        momentum: 0.9
+
+  - optimizer:
+      name: nesterov
+      params:
+        lr: 0.001
+        momentum: 0.9
+
+  - optimizer:
+      name: adagrad
+      params:
+        lr: 0.1
+
+  - optimizer:
+      name: rmsprop
+      params:
+        lr: 0.01
+        beta: 0.9
+
+  - optimizer:
+      name: adam
+      params:
+        lr: 0.01
+        beta1: 0.9
+        beta2: 0.999

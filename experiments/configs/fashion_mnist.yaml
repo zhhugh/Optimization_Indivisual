@@ -1,0 +1,41 @@
+name: logistic_fashion_mnist
+n_seeds: 2
+
+base:
+  problem:
+    name: logistic
+    data:
+      name: fashion_mnist
+      max_samples: 70000
+    params:
+      reg: 0.0001
+  training:
+    max_iterations: 500
+    batch_size: 128
+    eval_interval: 10
+    track_gradients: true
+
+experiments:
+  - optimizer:
+      name: adagrad
+      params:
+        lr: 0.1
+
+  - optimizer:
+      name: rmsprop
+      params:
+        lr: 0.01
+        beta: 0.9
+
+  - optimizer:
+      name: adam
+      params:
+        lr: 0.001
+        beta1: 0.9
+        beta2: 0.999
+
+  - optimizer:
+      name: adamom
+      params:
+        lr: 0.01
+        momentum: 0.9
